@@ -1,0 +1,29 @@
+.left-col {
+background-color: #fdfdfe;
+
+}
+.left-col .overlay {
+height:180px;
+width:100%;
+background-color:#4d4d4d;
+}
+.head-img {
+background-color:#000000;
+margin-top:-64px;
+border: 5px solid #fdfdfe;
+
+width:128px;
+height:128px;
+border-radius:50%;
+}
+
+.head-img img {
+width:100%;
+height:100%;
+border-radius:50%;
+}
+
+.right-col {
+background-color:#e9e9e9;
+
+}
