@@ -7,6 +7,7 @@
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/pygments.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style800.css" media="screen and (max-width:800px)">
 
@@ -61,12 +62,6 @@
         <div class="right-col">
             <article>
                 <header><h1><a href="#">Python每日同步Bing桌面</a></h1></header>
-                <p>
-                    微软Bing搜索网站每天都切换一张精美的图片作为背景，很多人都想使用Bing的背景图片作为桌面背景，网上也可以找到一些软件来每天同步Bing壁纸作为桌面。笔者不是很喜欢在电脑上每天开着这样的软件来完成切换桌面的功能，后来想是否可以通过Python写一个简单的程序来实现同样的任务呢，在网上搜索了一下，有这样想法的人还是有很多的，借鉴了很多网友的资料，实现了这样的功能。
-                </p>
-                <p>
-                    <img class="img-responsive" src="image/BluePondJapan_ZH-CN9068810300_1920x1080.jpg" title="images">
-                </p>
                 <div class="article-info center-block">
                     <div class="article-tag-leaf center-block">
                         <span class="glyphicon glyphicon-leaf "></span>
@@ -84,49 +79,104 @@
             </article>
             <article>
                 <header><h1><a href="#">Python每日同步Bing桌面</a></h1></header>
-                <p>
-                    微软Bing搜索网站每天都切换一张精美的图片作为背景，很多人都想使用Bing的背景图片作为桌面背景，网上也可以找到一些软件来每天同步Bing壁纸作为桌面。笔者不是很喜欢在电脑上每天开着这样的软件来完成切换桌面的功能，后来想是否可以通过Python写一个简单的程序来实现同样的任务呢，在网上搜索了一下，有这样想法的人还是有很多的，借鉴了很多网友的资料，实现了这样的功能。
-                </p>
-                <p>
-                    <img class="img-responsive" src="image/BluePondJapan_ZH-CN9068810300_1920x1080.jpg" title="images">
-                </p>
-                <div class="article-info center-block">
-                    <div class="article-tag-leaf center-block">
-                        <span class="glyphicon glyphicon-leaf "></span>
-                    </div>
 
-                    <div class="article-tags">
-                        <ul class="center-block">
-                            <li>
-                                <a href="#">Python</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="article-more center-block">more>></div>
-                </div>
             </article>
             <article>
                 <header><h1><a href="#">Python每日同步Bing桌面</a></h1></header>
-                <p>
-                    微软Bing搜索网站每天都切换一张精美的图片作为背景，很多人都想使用Bing的背景图片作为桌面背景，网上也可以找到一些软件来每天同步Bing壁纸作为桌面。笔者不是很喜欢在电脑上每天开着这样的软件来完成切换桌面的功能，后来想是否可以通过Python写一个简单的程序来实现同样的任务呢，在网上搜索了一下，有这样想法的人还是有很多的，借鉴了很多网友的资料，实现了这样的功能。
-                </p>
-                <p>
-                    <img class="img-responsive" src="image/BluePondJapan_ZH-CN9068810300_1920x1080.jpg" title="images">
-                </p>
-                <div class="article-info center-block">
-                    <div class="article-tag-leaf center-block">
-                        <span class="glyphicon glyphicon-leaf "></span>
-                    </div>
+                <div class="article-body">
+                    <p><em>微软Bing搜索网站每天都切换一张精美的图片作为背景，很多人都想使用Bing的背景图片作为桌面背景，网上也可以找到一些软件来每天同步Bing壁纸作为桌面。笔者不是很喜欢在电脑上每天开着这样的软件来完成切换桌面的功能，后来想是否可以通过Python写一个简单的程序来实现同样的任务呢，在网上搜索了一下，有这样想法的人还是有很多的，借鉴了很多网友的资料，实现了这样的功能。</em></p>
+                    <!-- more -->
 
-                    <div class="article-tags">
-                        <ul class="center-block">
-                            <li>
-                                <a href="#">Python</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="article-more center-block">more>></div>
+                    <h1>首先获取Bing背景图片的地址</h1>
+                    <p>访问 <a href="http://www.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1">http://www.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1</a> 可以获取Bing背景图片的信息，返回的数据格式如下</p>
+                    <div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;images&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;startdate&quot;</span><span class="p">:</span> <span class="s2">&quot;20160628&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;fullstartdate&quot;</span><span class="p">:</span> <span class="s2">&quot;201606281600&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;enddate&quot;</span><span class="p">:</span> <span class="s2">&quot;20160629&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://s.cn.bing.net/az/hprichbg/rb/KansasCropCircles_ZH-CN9416992875_1920x1080.jpg&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;urlbase&quot;</span><span class="p">:</span> <span class="s2">&quot;/az/hprichbg/rb/KansasCropCircles_ZH-CN9416992875&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;copyright&quot;</span><span class="p">:</span> <span class="s2">&quot;美国，在堪萨斯州西南部的时针式灌溉区 (© NASA/GSFC/METI/ERSDAC/JAROS, and U.S./Japan ASTER Science Team)&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;copyrightlink&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.bing.com/search?q=%E5%A0%AA%E8%90%A8%E6%96%AF%E5%B7%9E+%E6%97%B6%E9%92%88%E5%BC%8F%E5%96%B7%E7%81%8C&amp;form=hpcapt&amp;mkt=zh-cn&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;wp&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;hsh&quot;</span><span class="p">:</span> <span class="s2">&quot;c4aac65e477f2f896034ad7d16fe190a&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;drk&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;top&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;bot&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;hs&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;今日图片故事&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.bing.com/search?q=%E5%A0%AA%E8%90%A8%E6%96%AF%E5%B7%9E+%E6%97%B6%E9%92%88%E5%BC%8F%E5%96%B7%E7%81%8C&amp;form=pgbar1&amp;mkt=zh-cn&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;堪萨斯州 时针式喷灌&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;tooltips&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;loading&quot;</span><span class="p">:</span> <span class="s2">&quot;正在加载...&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;previous&quot;</span><span class="p">:</span> <span class="s2">&quot;上一个图像&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;下一个图像&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;walle&quot;</span><span class="p">:</span> <span class="s2">&quot;此图片不能下载用作壁纸。&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;walls&quot;</span><span class="p">:</span> <span class="s2">&quot;下载今日美图。仅限用作桌面壁纸。&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+                    <p>从图片信息中拿到图片文件的地址，把文件下载到本地。</p>
+                    <h1>使用win32gui设置桌面背景</h1>
+                    <div class="highlight"><pre><span></span><span class="n">win32gui</span><span class="o">.</span><span class="n">SystemParametersInfo</span><span class="p">(</span><span class="n">win32con</span><span class="o">.</span><span class="n">SPI_SETDESKWALLPAPER</span><span class="p">,</span> <span class="n">new_img_path</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+                    <p>设置桌面背景的图片格式必须是.bmp格式，所以使用PIL将图片转换为.bmp格式后再设置桌面背景。完成这些之后程序就写完了。</p>
+                    <h1>定时执行Python程序</h1>
+                    <p>执行Python程序的方法写在一个VB脚本中，这样不会弹出一个命令框出来。</p>
+
+                    <pre><code>set a=createobject("wscript.shell")
+a.run "cmd.exe /c python BingWallpaper.py" &amp; Chr(34), 0
+set a= Nothing</code></pre>
+                    <p>使用Windows自带的任务计划，每天去执行一遍VBS程序，这样就实现每天同步Bing的桌面壁纸了。</p>
+                    <h4>Python源码</h4>
+                    <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">win32gui</span>
+<span class="kn">import</span> <span class="nn">win32con</span>
+
+<span class="n">bingUrl</span> <span class="o">=</span> <span class="s2">&quot;http://www.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&quot;</span>
+<span class="n">wallpaperDic</span> <span class="o">=</span> <span class="s2">&quot;F:/BingWallPapers/&quot;</span>
+
+<span class="k">def</span> <span class="nf">download_img</span><span class="p">():</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">bingUrl</span><span class="p">)</span>
+    <span class="n">jobj</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="n">jobj</span><span class="p">[</span><span class="s2">&quot;images&quot;</span><span class="p">]</span>
+    <span class="n">img_url</span> <span class="o">=</span> <span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;url&quot;</span><span class="p">]</span>
+    <span class="n">img_path</span> <span class="o">=</span> <span class="n">wallpaperDic</span> <span class="o">+</span> <span class="n">img_url</span><span class="p">[</span><span class="n">img_url</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">img_path</span><span class="p">):</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">img_url</span><span class="p">)</span>
+        <span class="n">img_data</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">content</span>
+
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">img_data</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">img_path</span>
+
+
+<span class="k">def</span> <span class="nf">update_wallpaper</span><span class="p">():</span>
+    <span class="n">img_path</span> <span class="o">=</span> <span class="n">download_img</span><span class="p">()</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span>
+    <span class="n">new_img_path</span> <span class="o">=</span> <span class="n">img_path</span><span class="p">[:</span><span class="n">img_path</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;.bmp&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">new_img_path</span><span class="p">):</span>
+        <span class="n">im</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">new_img_path</span><span class="p">)</span>
+    <span class="n">win32gui</span><span class="o">.</span><span class="n">SystemParametersInfo</span><span class="p">(</span><span class="n">win32con</span><span class="o">.</span><span class="n">SPI_SETDESKWALLPAPER</span><span class="p">,</span> <span class="n">new_img_path</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="c1"># os.remove(new_img_path)</span>
+
+<span class="n">update_wallpaper</span><span class="p">()</span>
+</pre></div>
+                    <p>备注：Python版本 Python 3.5.1，依赖pywin32库，不同的Python版本对应的pywin32的库也不一样，需要下载适合你的Python版本（下载地址：<a href="https://sourceforge.net/projects/pywin32/files%2Fpywin32/）。">https://sourceforge.net/projects/pywin32/files%2Fpywin32/）。</a></p>
+
                 </div>
+
             </article>
         </div>
     </div>
