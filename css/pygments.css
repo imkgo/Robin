@@ -64,3 +64,20 @@
 .highlight .vg { color: #f8f8f2 } /* Name.Variable.Global */
 .highlight .vi { color: #f8f8f2 } /* Name.Variable.Instance */
 .highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */
+.highlighttable {
+    border-radius:4px;
+}
+pre {
+    font-size: 18px;
+    background-color: #000000;
+    border-width: 0;
+    border-radius:0;
+}
+
+pre code {
+    color: #fff;
+}
+
+.linenodiv pre {
+    color: #676767;
+}
