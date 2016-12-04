@@ -2,6 +2,14 @@ h1 p ul {
 margin:0;
 padding:0;
 }
+a {
+    text-decoration:none;
+    color:inherit;
+}
+a:-webkit-any-link {
+    text-decoration:none;
+    color:inherit;
+}
 
 body {
 background-color:#e9e9e9;
@@ -151,7 +159,6 @@ padding:15px 0 15px 25px;
 }
 
 .right-col article header h1 a {
-text-decoration:none;
 font-size:26px;
 color:#696969;
 }
@@ -185,13 +192,24 @@ float:left;
 display:inline-block;
 }
 .article-tags ul li a {
-text-decoration:none;
 color:#696969;
 }
 .article-more {
-display:table;
-float:right;
+    display:table;
+    float:right;
+    background: #000000;
+    color: #ffffff;
+    padding: 3px;
+    border-radius: 4px;
 }
+
+.article-date {
+    color:#696969;
+    float: right;
+    margin-right: 15px;
+    margin-top: -35px;
+}
+
 
 
 
