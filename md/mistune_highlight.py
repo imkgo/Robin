@@ -31,6 +31,8 @@ def get_article(path):
         art.title = get_title(mark_txt)
         art.date = get_date(mark_txt)
         art.body = get_body(mark_txt)
+        art.tags = get_tags(mark_txt)
+        art.digest = get_digest(mark_txt)
     return art
 
 
@@ -55,6 +57,21 @@ def get_date(text):
 def get_body(text):
     pattern = re.compile(r"---")
     return markdown(re.split(pattern, text)[1])
+
+
+def get_digest(text):
+    pattern = re.compile(r"---|\<\!-- more --\>")
+    return markdown(re.split(pattern, text)[1])
+
+
+def get_tags(text):
+    pattern = re.compile(r"tags:\s\[(.+)\]")
+    rs = re.search(pattern, text)
+    if rs:
+        tags = rs.groups()[0]
+        return re.split(",", tags)
+
+    return []
 
 
 # art = get_article(u"E:/git/github/hexo-repo/source/_posts/Hexo搭建Github静态博客.md")

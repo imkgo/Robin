@@ -70,7 +70,7 @@
                 </header>
 
                 <div class="article-body">
-                    {{ article.body|safe }}
+                    {{ article.digest|safe }}
                 </div>
 
                 <div class="article-info center-block">
@@ -79,11 +79,13 @@
                     </div>
 
                     <div class="article-tags">
+                        {% for tag in article.tags %}
                         <ul class="center-block">
                             <li>
-                                <a href="#">Python</a>
+                                <a href="#">{{ tag }}</a>
                             </li>
                         </ul>
+                        {% endfor %}
                     </div>
                     <div class="article-more center-block"><a href="#">more>></a></div>
                 </div>
