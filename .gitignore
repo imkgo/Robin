@@ -1,7 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
 .gitignore
-.idea/Robin.iml
-.idea/deployment.xml
-.idea/modules.xml
-.idea/sonarlint/
-.idea/workspace.xml
+.idea/
+source/
