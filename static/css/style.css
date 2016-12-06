@@ -1,0 +1,293 @@
+h1 p ul {
+margin:0;
+padding:0;
+}
+a {
+    text-decoration:none;
+    color:inherit;
+}
+a:-webkit-any-link {
+    text-decoration:none;
+    color:inherit;
+}
+
+body {
+background-color:#e9e9e9;
+height:100%;
+overflow:hidden;
+margin:0;
+padding:0;
+color:#696969;
+}
+.container-fluid {
+padding:0;
+width:100%;
+height:100%;
+position:absolute;
+}
+.left-col {
+background-color: #fdfdfe;
+padding:0;
+height:100%;
+width:300px;
+position:absolute;
+float:left;
+}
+.left-col .overlay {
+height:180px;
+width:100%;
+background-color:#4d4d4d;
+}
+.header-img{
+background-color:#000000;
+margin-top:-70px;
+border: 5px solid #fdfdfe;
+width:140px;
+height:140px;
+border-radius:50%;
+}
+
+.header-img img {
+width:100%;
+height:100%;
+border-radius:50%;
+}
+.left-col .header-author{
+font-size:30px;
+margin-top:20px;
+}
+.left-col .header-author a {
+text-decoration:none;
+color:#6a6a6a;
+}
+
+.left-col .header-subtitle{
+font-size:14px;
+color:#9a9da5;
+margin-top:20px;
+}
+.switch-btn {
+height:31px;
+width:31px;
+border-radius:50%;
+background-color:#cecece;
+margin-top:40px;
+}
+.switch-btn-span {
+width:14px;
+height:16px;
+padding-top:5px;
+}
+.header-menu ul {
+list-style:none;
+padding:0;
+margin-top:40px;
+
+}
+.header-menu ul li {
+text-align:center;
+margin-top:10px;
+
+}
+.header-menu ul li a {
+text-decoration:none;
+color:#9d9d9d;
+}
+
+.header-nav ul {
+list-style:none;
+margin-top:20px;
+display:table;
+padding:0;
+}
+
+.header-nav li {
+float:left;
+margin:0 10px;
+}
+
+.header-nav li a {
+display:inline-block;
+height:30px;
+width:30px;
+border-radius:50%;
+}
+
+.github {
+background: url("../image/github.png") center no-repeat #afb6ca;
+border: 1px solid #afb6ca;
+}
+
+.zhihu {
+background: url("../image/zhihu.png") center no-repeat #4ea0e4;
+border: 1px solid #4ea0e4;
+}
+.rss {
+background: url("../image/rss.png") center no-repeat #ef7522;
+border: 1px solid #ef7522;
+}
+.weibo {
+background: url("../image/rss.png") center no-repeat #aaf;
+border: 1px solid #aaf;
+}
+
+.main {
+height:100%;
+width:100%;
+float:left;
+position:absolute;
+overflow-y:scroll;
+}
+
+.right-col {
+height:100%;
+width:auto;
+float:left;
+left:330px;
+right:30px;
+position:absolute;
+}
+
+.right-col article {
+background-color:#fff;
+margin:30px 0;
+}
+
+.right-col article header {
+border-left:5px solid #676767;
+padding:15px 0 15px 25px;
+}
+
+.right-col article header h1 a {
+font-size:26px;
+color:#696969;
+}
+
+.right-col article .article-body {
+    padding: 30px;
+}
+
+/*img-responsive*/
+
+.article-body img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.article-info {
+margin:0 30px;
+border-top:1px solid #ddd;
+padding:40px 0;
+}
+
+.article-tag-leaf {
+display:inline-block;
+float:left;
+}
+
+.article-tags {
+float:left;
+display:table;
+}
+
+.article-tags ul {
+list-style:none;
+display:table;
+}
+.article-tags ul li {
+float:left;
+display:inline-block;
+}
+.article-tags ul li a {
+color:#696969;
+}
+.article-more {
+    display:table;
+    float:right;
+    background: #000000;
+    color: #ffffff;
+    padding: 3px;
+    border-radius: 4px;
+}
+
+.article-date {
+    color:#696969;
+    float: right;
+    margin-right: 15px;
+    margin-top: -35px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+}
+::-webkit-scrollbar-button:start:increment,
+::-webkit-scrollbar-button:end:decrement {
+    display: none;
+}
+::-webkit-scrollbar-corner {
+    display: block;
+}
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    background-color: rgba(0,0,0,0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    background-color: rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+}
+::-webkit-scrollbar-track:hover {
+    background-color: rgba(0,0,0,0.15);
+}
+::-webkit-scrollbar-button:start {
+    width: 10px;
+    height: 10px;
+    background: url("../image/scrollbar_arrow.png") no-repeat 0 0;
+}
+::-webkit-scrollbar-button:start:hover {
+    background: url("../image/scrollbar_arrow.png") no-repeat -15px 0;
+}
+::-webkit-scrollbar-button:start:active {
+    background: url("../image/scrollbar_arrow.png") no-repeat -30px 0;
+}
+::-webkit-scrollbar-button:end {
+    width: 10px;
+    height: 10px;
+    background: url("../image/scrollbar_arrow.png") no-repeat 0 -18px;
+}
+::-webkit-scrollbar-button:end:hover {
+    background: url("../image/scrollbar_arrow.png") no-repeat -15px -18px;
+}
+::-webkit-scrollbar-button:end:active {
+    background: url("../image/scrollbar_arrow.png") no-repeat -30px -18px;
+}

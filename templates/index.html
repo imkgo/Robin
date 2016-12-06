@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>哦吼吼</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/animate.min.css">
+    <link rel="stylesheet" href="../static/css/pygments.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/style800.css" media="screen and (max-width:800px)">
+    <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../static/favicon.ico" type="image/x-icon">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="left-col">
+        <div class="overlay"></div>
+        <div class="header-img center-block">
+            <img src="../static/image/logo.png">
+        </div>
+        <div class="header-author text-center">
+            <a>FrankMeng</a>
+        </div>
+        <div class="header-subtitle text-center">Robin Blog</div>
+        <div class="switch-btn center-block">
+            <span class="glyphicon glyphicon-home switch-btn-span center-block"></span>
+        </div>
+        <div class="header-menu center-block">
+            <ul class="center-block">
+                <li>
+                    <a href="#">主页</a>
+                </li>
+                <li>
+                    <a href="#">所有文章</a>
+                </li>
+            </ul>
+        </div>
+        <nav class="header-nav center-block">
+            <ul class="center-block">
+                <li>
+                    <a href="#" class="github" title="github"></a>
+                </li>
+                <li>
+                    <a href="#" class="rss" title="rss"></a>
+                </li>
+                <li>
+                    <a href="#" class="weibo" title="weibo"></a>
+                </li>
+                <li>
+                    <a href="#" class="zhihu" title="zhihu"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="right-col">
+            {% for article in articles %}
+                <article>
+                <header><h1><a href="#">{{ article.title }}</a></h1>
+                    <a href="#" class="article-date">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        {{ article.date }}</a>
+                </header>
+
+                <div class="article-body">
+                    {{ article.body|safe }}
+                </div>
+
+                <div class="article-info center-block">
+                    <div class="article-tag-leaf center-block">
+                        <span class="glyphicon glyphicon-leaf "></span>
+                    </div>
+
+                    <div class="article-tags">
+                        <ul class="center-block">
+                            <li>
+                                <a href="#">Python</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="article-more center-block"><a href="#">more>></a></div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+
+
+</div>
+<script src="../static/js/index.js"></script>
+</body>
+</html>
