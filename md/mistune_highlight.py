@@ -37,16 +37,16 @@ def get_article(path):
 
 
 def get_title(text):
-    pattern = re.compile(r"title:\s(.+)")
+    pattern = re.compile("title:\s(.+)[\r\n]")
     match = pattern.match(text)
     if match:
-        return match.groups()[0]
+        return match.group(1)
     else:
         return ""
 
 
 def get_date(text):
-    pattern = re.compile(r"date:\s(.+)")
+    pattern = re.compile(r"date:\s(.+)[\r\n]")
     t = re.search(pattern, text)
     if t:
         return t.groups()[0]
@@ -74,7 +74,3 @@ def get_tags(text):
     return []
 
 
-# art = get_article(u"E:/git/github/hexo-repo/source/_posts/Hexo搭建Github静态博客.md")
-# print art.title
-# print art.date
-# print art.body

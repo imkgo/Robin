@@ -6,7 +6,6 @@ class Article(object):
     def __init__(self):
         pass
 
-
-class MyEncoder(JSONEncoder):
-    def default(self, o):
-        return o.__dict__
+    @property
+    def to_dic(self):
+        return {"title":self.title, "body":self.body, "date":self.date, "tags":self.tags, "digest":self.digest}
