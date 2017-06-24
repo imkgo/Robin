@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template
-import mistune_highlight
 import article_dao
 app = Flask(__name__)
 
@@ -9,6 +8,8 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     return render_template("index.html", articles=article_dao.find_all())
+
+
 
 
 @app.route("/ethan")

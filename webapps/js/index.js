@@ -11,5 +11,11 @@ $.fn.extend({
 });
 
 $(document).ready(function(){
-    $(".header-img img").animateCss("bounceInDown")
+    $(".header-img img").animateCss("bounceInDown");
+
 });
+
+function loadArticle() {
+    $(".main").empty();
+    $(".main").load("article.html");
+}
