@@ -8,21 +8,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return render_template("index.html", articles=article_dao.find_all())
+    return render_template("article_list.html", articles=article_dao.find_all())
 
 
 # 根据标题获取博客
 @app.route("/<title>", methods=["post", "get"])
 def article(title):
-    print title
-    logging.info(title)
     art = article_dao.find_article_by_title(title)
-    return render_template("article.html", article = art)
+    return render_template("article.html", article=art)
 
-
-@app.route("/ethan")
-def hello():
-    return "<h1>Hello, eth11an!</h1>"
 
 #
 # @app.route("/<user_name>")

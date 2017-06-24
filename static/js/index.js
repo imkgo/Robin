@@ -13,15 +13,3 @@ $.fn.extend({
 $(document).ready(function(){
     $(".header-img img").animateCss("bounceInDown")
 });
-
-function loadArticle() {
-
-    $.ajax({
-            url:"/使用Python爬取妹子图片",
-            method:"post",
-            success:function(text) {
-                $(".right-col").empty();
-                $(".right-col").append(text);
-            }
-        });
-}

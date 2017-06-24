@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="right-col">
+    {% for article in articles %}
+    <article>
+        <header><h1><a href="#">{{ article.title }}</a></h1>
+            <a href="#" class="article-date">
+                <span class="glyphicon glyphicon-calendar"></span>
+                {{ article.date }}</a>
+        </header>
+
+        <div class="article-body">
+            {{ article.digest|safe }}
+        </div>
+
+        <div class="article-info center-block">
+            <div class="article-tag-leaf center-block">
+                <span class="glyphicon glyphicon-leaf "></span>
+            </div>
+
+            <div class="article-tags tagcloud">
+                {% for tag in article.tags %}
+                <ul class="center-block">
+                    <li>
+                        <a class="color{{loop.index}}" href="#">{{ tag }}</a>
+                    </li>
+                </ul>
+                {% endfor %}
+            </div>
+            <div class="article-more center-block"><a href="/{{article.title}}">more>></a></div>
+        </div>
+    </article>
+    {% endfor %}
+</div>
+{% endblock %}
