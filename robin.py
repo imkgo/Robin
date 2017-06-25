@@ -2,9 +2,9 @@
 
 from flask import Flask, render_template
 import article_dao
-import logging
+import config
 app = Flask(__name__)
-
+app.config.from_object(config)
 
 @app.route('/')
 def hello_world():
@@ -17,11 +17,6 @@ def article(title):
     art = article_dao.find_article_by_title(title)
     return render_template("article.html", article=art)
 
-
-#
-# @app.route("/<user_name>")
-# def hello1(user_name):
-#     return "<h1>Hello, %s!</h1>" % user_name
 
 #
 # @app.route("/<year>/<month>/<day>")

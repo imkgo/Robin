@@ -2,12 +2,12 @@
 from pymongo import MongoClient
 import mistune_highlight
 import article
+from flask import current_app
 
+client = MongoClient(current_app.config.get("db_host"), current_app.config.get("db_port"))
 
-client = MongoClient('localhost', 27017)
-
-db = client['robin']
-db.authenticate("1", "1")
+db = client[current_app.config.get("db_name")]
+db.authenticate(current_app.config.get("db_user"), current_app.config.get("db_pwd"))
 
 article_col = db.article
 

@@ -265,6 +265,33 @@ color:#696969;
     margin-top: -35px;
 }
 
+.next_article {
+    text-align: right;
+    margin-right: 35px;
+    padding-bottom: 20px;
+}
+
+.next_article a {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.next_article a:hover {
+    color: #000;
+}
+
+.next_article a:hover span {
+    background-color: #000;
+}
+
+.next_article a span {
+    background-color: #ddd;
+    color: #fff;
+    height: 15px;
+    width:15px;
+    border-radius: 50%;
+    display: inline-block;
+}
 
 
 
