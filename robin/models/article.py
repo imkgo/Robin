@@ -1,6 +1,3 @@
-from json import JSONEncoder
-
-
 class Article(object):
 
     def __init__(self):

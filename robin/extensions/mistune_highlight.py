@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 # py -2 -m pip install pygments
-import mistune
-from pygments import highlight
-from pygments.lexers import get_lexer_by_name
-from pygments.formatters import html
-import article
 import codecs
 import re
+
+import mistune
+from pygments import highlight
+from pygments.formatters import html
+from pygments.lexers import get_lexer_by_name
+
+from robin.models import article
 
 
 class HighlightRenderer(mistune.Renderer):
@@ -59,6 +61,7 @@ def get_body(text):
     return markdown(re.split(pattern, text)[1])
 
 
+# 获取摘要
 def get_digest(text):
     pattern = re.compile(r"---|\<\!-- more --\>")
     return markdown(re.split(pattern, text)[1])
