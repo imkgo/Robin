@@ -26,12 +26,13 @@ height:100%;
 position:absolute;
 }
 .left-col {
-background-color: #fdfdfe;
-padding:0;
-height:100%;
-width:300px;
-position:absolute;
-float:left;
+    background-color: #fdfdfe;
+    padding:0;
+    height:100%;
+    width:300px;
+    position:absolute;
+    float:left;
+    z-index: 100;
 }
 .left-col .overlay {
 height:180px;

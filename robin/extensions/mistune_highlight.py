@@ -38,6 +38,17 @@ def get_article(path):
     return art
 
 
+def artilce(article_str):
+    art = article.Article()
+
+    art.title = get_title(article_str)
+    art.date = get_date(article_str)
+    art.body = get_body(article_str)
+    art.tags = get_tags(article_str)
+    art.digest = get_digest(article_str)
+    return art
+
+
 def get_title(text):
     pattern = re.compile("title:\s(.+)[\r\n]")
     match = pattern.match(text)

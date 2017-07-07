@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../static/css/pygments.css">
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="../static/css/style800.css" media="screen and (max-width:800px)">
-    <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
     <link rel="icon" href="../static/favicon.ico" type="image/x-icon">
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
@@ -45,7 +45,7 @@
         <nav class="header-nav center-block">
             <ul class="center-block">
                 <li>
-                    <a href="#" class="github" title="github"></a>
+                    <a href="{{ github }}" class="github" title="github"></a>
                 </li>
                 <li>
                     <a href="#" class="rss" title="rss"></a>

@@ -1,7 +1,7 @@
-db_host = ""
-db_port = ""
+MONGO_HOST = ""
+MONGO_PORT = ""
 
-db_name = ""
-db_user = ""
-db_pwd = ""
+MONGO_DBNAME = ""
+MONGO_USERNAME = ""
+MONGO_PASSWORD = ""
 
