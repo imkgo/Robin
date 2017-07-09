@@ -50,5 +50,9 @@ def upload_article():
     if article_file:
         article_str = article_file.read()
         article_obj = mistune_highlight.artilce(article_str)
-        mongo.db.article.insert_one(article_obj.to_dic)
+        temp_obj = mongo.db.article.find_one({"title":article_obj.title})
+        if temp_obj:
+            mongo.db.article.update_one({"title":article_obj.title}, {"$set":article_obj.to_dic})
+        else:
+            mongo.db.article.insert_one(article_obj.to_dic)
     return redirect("/")
