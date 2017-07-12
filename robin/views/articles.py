@@ -25,9 +25,10 @@ def index():
     return render_template("article_list.html", articles=art_list, github="https://github.com/imkgo")
 
 
-# 根据标题获取博客
 @ARTICLE_PAGE.route("/<title>", methods=["get"])
 def get_one(title):
+    """ 根据标题获取博客
+    """
     item = mongo.db.article.find_one({"title": title})
     art = article.Article()
     art.title = item["title"]
