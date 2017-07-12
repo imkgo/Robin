@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from robin import app
 import sys
+from robin import app
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
