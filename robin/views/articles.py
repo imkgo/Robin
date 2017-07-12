@@ -6,11 +6,12 @@ from robin import mongo
 from robin.models import article
 from robin.extensions import mistune_highlight
 
-article_page = Blueprint("article_page", __name__, template_folder="templates")
+ARTICLE_PAGE = Blueprint("article_page", __name__, template_folder="templates")
 
-
-@article_page.route('/')
+@ARTICLE_PAGE.route('/')
 def index():
+    """ 首页
+    """
     arts = mongo.db.article.find().sort("date", -1)
     art_list = []
     for item in arts:
@@ -25,7 +26,7 @@ def index():
 
 
 # 根据标题获取博客
-@article_page.route("/<title>", methods=["get"])
+@ARTICLE_PAGE.route("/<title>", methods=["get"])
 def get_one(title):
     item = mongo.db.article.find_one({"title": title})
     art = article.Article()
@@ -38,13 +39,13 @@ def get_one(title):
 
 
 # 上传页面
-@article_page.route("/upload")
+@ARTICLE_PAGE.route("/upload")
 def upload():
     return render_template("upload_blog.html")
 
 
 # 博客上传
-@article_page.route("/upload_article", methods=["post"])
+@ARTICLE_PAGE.route("/upload_article", methods=["post"])
 def upload_article():
     article_file = request.files['file']
     if article_file:
