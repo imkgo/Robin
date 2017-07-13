@@ -10,6 +10,7 @@ from robin.extensions import mistune_highlight
 
 ARTICLE_PAGE = Blueprint("article_page", __name__, template_folder="templates")
 
+
 @ARTICLE_PAGE.route('/')
 def index():
     """ 首页
@@ -17,40 +18,15 @@ def index():
     arts = MONGO.db.article.find().sort("date", -1)
     art_list = []
     for item in arts:
-        art = article.Article()
-        art.title = item["title"]
-        art.date = item["date"]
-        art.tags = item["tags"]
-        art.digest = item["digest"]
-        art.body = item["body"]
-        art_list.append(art)
+        art_list.append(article.article_from_dic(item))
+
     return render_template("article_list.html", articles=art_list, github="https://github.com/imkgo")
 
 
-@ARTICLE_PAGE.route("/<title>", methods=["get"])
-def get_one(title):
+@ARTICLE_PAGE.route("/<year>/<month>/<day>/<title>", methods=["get"])
+def get_one(year, month, day, title):
     """ 根据标题获取博客
     """
-    item = MONGO.db.article.find_one({"title": title})
-    art = article.Article()
-    art.title = item["title"]
-    art.date = item["date"]
-    art.tags = item["tags"]
-    art.digest = item["digest"]
-    art.body = item["body"]
+    item = MONGO.db.article.find_one({"year": int(year), "month": int(month), "day": int(day), "title": title})
+    art = article.article_from_dic(item)
     return render_template("article.html", article=art)
-
-
-# 博客上传
-@ARTICLE_PAGE.route("/upload_article", methods=["post"])
-def upload_article():
-    article_file = request.files['file']
-    if article_file:
-        article_str = article_file.read()
-        article_obj = mistune_highlight.artilce(article_str)
-        temp_obj = MONGO.db.article.find_one({"title":article_obj.title})
-        if temp_obj:
-            MONGO.db.article.update_one({"title":article_obj.title}, {"$set":article_obj.to_dic})
-        else:
-            MONGO.db.article.insert_one(article_obj.to_dic)
-    return redirect("/")

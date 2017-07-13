@@ -30,3 +30,16 @@ class Article(object):
             "month":self.month,
             "day":self.day
             }
+
+
+def article_from_dic(item):
+    art = Article()
+    art.title = item["title"]
+    art.date = item["date"]
+    art.tags = item["tags"]
+    art.digest = item["digest"]
+    art.body = item["body"]
+    art.year = item["year"]
+    art.month = item["month"]
+    art.day = item["day"]
+    return art

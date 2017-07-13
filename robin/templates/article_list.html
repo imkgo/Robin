@@ -3,7 +3,7 @@
 <div class="right-col">
     {% for article in articles %}
     <article>
-        <header><h1><a href="/{{article.title}}">{{ article.title }}</a></h1>
+        <header><h1><a href="/{{ article.year }}/{{ article.month }}/{{ article.day }}/{{article.title}}">{{ article.title }}</a></h1>
             <a href="#" class="article-date">
                 <span class="glyphicon glyphicon-calendar"></span>
                 {{ article.date }}</a>
