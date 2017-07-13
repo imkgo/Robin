@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+""" 文章页面逻辑处理
+"""
 
 from flask import render_template, Blueprint, request, redirect
 
@@ -37,13 +39,6 @@ def get_one(title):
     art.digest = item["digest"]
     art.body = item["body"]
     return render_template("article.html", article=art)
-
-
-@ARTICLE_PAGE.route("/upload")
-def upload():
-    """ 上传页面
-    """
-    return render_template("upload_blog.html")
 
 
 # 博客上传
