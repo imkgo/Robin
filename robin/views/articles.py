@@ -2,7 +2,7 @@
 
 from flask import render_template, Blueprint, request, redirect
 
-from robin import mongo
+from robin import MONGO
 from robin.models import article
 from robin.extensions import mistune_highlight
 
@@ -12,7 +12,7 @@ ARTICLE_PAGE = Blueprint("article_page", __name__, template_folder="templates")
 def index():
     """ 首页
     """
-    arts = mongo.db.article.find().sort("date", -1)
+    arts = MONGO.db.article.find().sort("date", -1)
     art_list = []
     for item in arts:
         art = article.Article()
@@ -29,7 +29,7 @@ def index():
 def get_one(title):
     """ 根据标题获取博客
     """
-    item = mongo.db.article.find_one({"title": title})
+    item = MONGO.db.article.find_one({"title": title})
     art = article.Article()
     art.title = item["title"]
     art.date = item["date"]
@@ -39,9 +39,10 @@ def get_one(title):
     return render_template("article.html", article=art)
 
 
-# 上传页面
 @ARTICLE_PAGE.route("/upload")
 def upload():
+    """ 上传页面
+    """
     return render_template("upload_blog.html")
 
 
@@ -52,9 +53,9 @@ def upload_article():
     if article_file:
         article_str = article_file.read()
         article_obj = mistune_highlight.artilce(article_str)
-        temp_obj = mongo.db.article.find_one({"title":article_obj.title})
+        temp_obj = MONGO.db.article.find_one({"title":article_obj.title})
         if temp_obj:
-            mongo.db.article.update_one({"title":article_obj.title}, {"$set":article_obj.to_dic})
+            MONGO.db.article.update_one({"title":article_obj.title}, {"$set":article_obj.to_dic})
         else:
-            mongo.db.article.insert_one(article_obj.to_dic)
+            MONGO.db.article.insert_one(article_obj.to_dic)
     return redirect("/")
