@@ -11,4 +11,4 @@ sys.setdefaultencoding('utf-8')
 APP.register_blueprint(ARTICLE_PAGE)
 
 if __name__ == '__main__':
-    APP.run(debug="enable")
+    APP.run(host="0.0.0.0", port=8095, debug="enable")
