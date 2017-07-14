@@ -69,7 +69,7 @@ def get_title(text):
 def get_date(text):
     """ 获取日期
     """
-    pattern = re.compile(r"date:\s(.+)[\r\n]")
+    pattern = re.compile(r"date:\s([0-9]{4}-[0-9]{2}-[0-9]{2}\s[0-9]{2}:[0-9]{2}:[0-9]{2})[\r\n]")
     t = re.search(pattern, text)
     if t:
         return t.groups()[0]
