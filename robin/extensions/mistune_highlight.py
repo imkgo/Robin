@@ -35,8 +35,8 @@ def get_article(path):
     art = article.Article()
     with codecs.open(path, "r", "utf-8") as mf:
         mark_txt = mf.read()
-        art.title = get_title(mark_txt)
-        art.date = get_date(mark_txt)
+        art.title = get_title(mark_txt).rstrip()
+        art.date = datetime.strptime(get_date(mark_txt), "%Y-%m-%d %H:%M:%S")
         art.body = get_body(mark_txt)
         art.tags = get_tags(mark_txt)
         art.digest = get_digest(mark_txt)
@@ -106,5 +106,4 @@ def get_year_month_day(date):
     """ 获取年份和月份
     日期格式为：2016-12-31 14:47:07
     """
-    article_date = datetime.strptime(date, "%Y-%m-%d %H:%M:%S")
-    return article_date.year, article_date.month, article_date.day
+    return date.year, date.month, date.day
